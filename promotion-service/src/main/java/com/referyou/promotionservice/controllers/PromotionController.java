@@ -21,4 +21,14 @@ public class PromotionController {
     public Promotion GetPromotionByCodeId(@RequestParam("codeId") Long codeId) {
         throw new NotImplementedException();
     }
+
+    @DeleteMapping("/")
+    public Promotion DeletePromotionsByCodeId(@RequestParam("codeId") Long codeId) {
+        throw new NotImplementedException();
+    }
+
+    @GetMapping("/value")
+    public Float GetPromotionValueByCodeId(@RequestParam("codeId") Long codeId) {
+        throw new NotImplementedException();
+    }
 }
