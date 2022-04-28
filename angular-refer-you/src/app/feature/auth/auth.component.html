@@ -1,10 +1,78 @@
-<app-menu-bar>
 
-  <section class="content">
-    <p>auth works! youyouuuu</p>
-  </section>
+<section class="auth-section">
 
-</app-menu-bar>
+  <mat-tab-group class="login-card" >
+    <mat-tab mat-card-image label="Login">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Login to ReferYou</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+          <mat-form-field appearance="fill" class="full-width mt50px" >
+            <mat-label>Enter your email</mat-label>
+            <input matInput [type]="'email'">
+            <mat-icon matSuffix>email</mat-icon>
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Enter your password</mat-label>
+            <input matInput [type]="'password'">
+            <mat-icon matSuffix>password</mat-icon>
+          </mat-form-field>
+        </mat-card-content>
+
+        <mat-card-footer>
+          <button mat-raised-button color="primary" class="full-width" (click)="login()">Login</button>
+        </mat-card-footer>
+
+      </mat-card>
+
+    </mat-tab>
+    <mat-tab label="Register">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Register to ReferYou</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+          <mat-form-field appearance="fill" class="full-width mt50px" >
+            <mat-label>Enter your email</mat-label>
+            <input matInput [type]="'email'">
+            <mat-icon matSuffix>email</mat-icon>
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Enter your password</mat-label>
+            <input matInput [type]="'password'">
+            <mat-icon matSuffix>password</mat-icon>
+          </mat-form-field>
+        </mat-card-content>
+
+        <mat-card-footer>
+          <button mat-raised-button color="primary" class="full-width" (click)="register()">Register</button>
+        </mat-card-footer>
+
+      </mat-card>
+
+
+
+    </mat-tab>
+  </mat-tab-group>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

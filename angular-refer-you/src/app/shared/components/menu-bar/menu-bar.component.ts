@@ -1,15 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {UserService} from "../../../core/service/user.service";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-menu-bar',
   templateUrl: './menu-bar.component.html',
   styleUrls: ['./menu-bar.component.scss']
 })
-export class MenuBarComponent implements OnInit {
+export class MenuBarComponent implements OnInit, OnDestroy {
 
-  constructor() { }
+  private isLoggedSubscription: Subscription = new Subscription();
+  public isLogged: boolean = false;
+
+  constructor(private userService: UserService) {}
 
   ngOnInit(): void {
+    this.isLoggedManager()
   }
+
+  private isLoggedManager(): any {
+    this.isLogged = this.userService.currentUser !== null;
+
+    this.isLoggedSubscription = this.userService.currentUser$.subscribe(user => {
+      this.isLogged = this.userService.currentUser !== null;
+    })
+  }
+
+
+  ngOnDestroy() {
+    this.isLoggedSubscription.unsubscribe();
+  }
+
 
 }

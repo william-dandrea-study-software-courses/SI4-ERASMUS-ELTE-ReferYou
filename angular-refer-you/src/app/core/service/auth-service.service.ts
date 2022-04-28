@@ -9,7 +9,6 @@ export class AuthServiceService {
   private HTTP_OPTIONS = {headers: new HttpHeaders({ 'Content-Type': 'application/json' })};
 
 
-
   constructor(private http: HttpClient) {
 
   }

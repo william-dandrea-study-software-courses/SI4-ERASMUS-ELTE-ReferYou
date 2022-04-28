@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {PageNotFoundComponent} from "./feature/page-not-found/page-not-found.component";
 import {AuthModule} from "./feature/auth/auth.module";
 import {HomeModule} from "./feature/home/home.module";
-
+import {AuthGuard} from "./core/helper/auth.guard";
 const routes: Routes = [
 
   {
@@ -13,6 +13,7 @@ const routes: Routes = [
   {
     path: "home",
     loadChildren: () => import('./feature/home/home.module').then(m => m.HomeModule),
+    canActivate: [AuthGuard]
   },
   {
     path: "**",
