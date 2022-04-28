@@ -5,3 +5,5 @@ eureka:
     client:
         register-with-eureka: false
         fetch-registry: false
+        service-url:
+            defaultZone: http://hostname:8085/eureka
