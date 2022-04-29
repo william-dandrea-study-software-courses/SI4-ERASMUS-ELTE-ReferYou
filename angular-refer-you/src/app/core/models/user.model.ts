@@ -2,5 +2,8 @@
 
 
 export interface User {
-  email: string,
+  user_id: number,
+  mail: string,
+  password: string,
+  is_ban: boolean,
 }
