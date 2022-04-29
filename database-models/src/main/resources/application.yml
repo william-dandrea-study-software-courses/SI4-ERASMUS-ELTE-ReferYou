@@ -1,0 +1,25 @@
+server:
+    port: 8089
+
+spring:
+    application:
+        name: DATABASE-SERVICE
+    datasource:
+        url: jdbc:postgresql://localhost:5432/ReferYou
+        platform: POSTGRESQL
+        username: backend
+        password: <PASSWORD>
+    jpa:
+        hibernate:
+            ddl-auto: create-drop
+            show_sql: true
+#        properties.hibernate.temp.use_jdbc_metadata_defaults: false
+
+eureka:
+    client:
+        register-with-eureka: true
+        fetch-registry: true
+        service-url:
+            defaultZone: http://localhost:8085/eureka
+        instance:
+            hostname: localhost

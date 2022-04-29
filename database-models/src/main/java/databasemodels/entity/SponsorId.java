@@ -1,4 +1,4 @@
-package com.referyou.promotionservice.entity;
+package databasemodels.entity;
 
 import lombok.AllArgsConstructor;
 
