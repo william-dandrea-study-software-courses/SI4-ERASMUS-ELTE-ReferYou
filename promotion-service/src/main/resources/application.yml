@@ -4,6 +4,16 @@ server:
 spring:
     application:
         name: PROMOTION-SERVICE
+    datasource:
+        url: jdbc:postgresql://localhost:5432/ReferYou
+        platform: POSTGRESQL
+        username: backend
+        password: <PASSWORD>
+    jpa:
+        hibernate:
+            ddl-auto: create-drop
+            show_sql: true
+#        properties.hibernate.temp.use_jdbc_metadata_defaults: false
 
 eureka:
     client:
