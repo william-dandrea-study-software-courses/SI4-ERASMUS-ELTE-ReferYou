@@ -21,4 +21,17 @@ export class CodeService {
     this.allCodes$.next(this.allCodes);
   }
 
+
+  public deleteCode(id: number): void {
+
+  }
+
+  public addCode(code: Code): void {
+
+  }
+
+  public editCode(code: Code): void {
+
+  }
+
 }

@@ -45,4 +45,9 @@ export class CodeListItemComponent implements OnInit {
       this.negativeRatings = ratings!.filter(r => r.is_negative);
     })
   }
+
+  public isAtCurrentUser(): boolean {
+    return this.userService && this.userService.currentUser?.user_id === this.code?.user_id
+  }
+
 }

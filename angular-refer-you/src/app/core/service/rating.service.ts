@@ -21,6 +21,14 @@ export class RatingService {
     this.allRatings$.next(this.allRatings);
   }
 
+  public addRating(): any {
+
+  }
+
+  public updateRating(): any {
+
+  }
+
 
   public ratingFromUserIdAndCodeId(userId: number, codeId: number): BehaviorSubject<Rating | undefined> {
     return new BehaviorSubject<Rating | undefined>(RATINGS.find(r => r.user_id === userId && r.code_id === codeId));

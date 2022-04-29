@@ -20,4 +20,9 @@ export class SponsorService {
     this.allSponsors = SPONSORS;
     this.allSponsors$.next(this.allSponsors);
   }
+
+  public addSponsor(codeId: number) {
+
+  }
+
 }

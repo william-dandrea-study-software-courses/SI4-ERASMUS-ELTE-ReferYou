@@ -1,0 +1,63 @@
+
+
+<form  [formGroup]="codeForm"  (ngSubmit)="submitCode()"  class="full-width">
+
+  <mat-card style="margin: 100px; margin-top: 50px;" >
+    <mat-card-title>Add new code</mat-card-title>
+
+    <mat-card-content style="margin-top: 30px">
+
+      <mat-form-field appearance="fill" class="full-width" >
+        <mat-label>Code value</mat-label>
+        <input matInput type="text" formControlName="code_value">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Description</mat-label>
+        <textarea matInput type="text" formControlName="description"></textarea>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Expiration date</mat-label>
+        <input matInput type="date" formControlName="expiration_date">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Expiration date</mat-label>
+        <input matInput type="text" formControlName="redirect_url">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Website</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let website of websites" value={{website.website_id}} >{{website.url}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+
+      <mat-card class="full-width">
+        <mat-card-subtitle>Add new website</mat-card-subtitle>
+        <mat-card-content>
+          <form [formGroup]="websiteForm" (ngSubmit)="submitWebsite()">
+            <mat-form-field appearance="fill" style="margin: 10px;">
+              <mat-label>Website url</mat-label>
+              <input matInput formControlName="url">
+            </mat-form-field>
+            <mat-form-field appearance="fill" style="margin: 10px;">
+              <mat-label>Website description</mat-label>
+              <input matInput formControlName="description">
+            </mat-form-field>
+            <button type="submit" mat-raised-button color="primary" style="margin: 10px;">Add</button>
+          </form>
+        </mat-card-content>
+      </mat-card>
+
+
+
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-raised-button color="primary" class="full-width" type="submit">Submit</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {CodeService} from "../../../core/service/code.service";
-import {Code} from "../../../core/models/code.model";
-import {Website} from "../../../core/models/website.model";
-import {WebsiteService} from "../../../core/service/website.service";
-import {UserService} from "../../../core/service/user.service";
-import {User} from "../../../core/models/user.model";
+import {CodeService} from "../../../../core/service/code.service";
+import {Code} from "../../../../core/models/code.model";
+import {Website} from "../../../../core/models/website.model";
+import {WebsiteService} from "../../../../core/service/website.service";
+import {UserService} from "../../../../core/service/user.service";
+import {User} from "../../../../core/models/user.model";
 
 @Component({
   selector: 'app-code-list',
@@ -23,4 +23,7 @@ export class CodeListComponent implements OnInit {
     })
   }
 
+  public isLogged(): boolean {
+    return this.userService.currentUser !== null;
+  }
 }

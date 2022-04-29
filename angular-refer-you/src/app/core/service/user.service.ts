@@ -18,6 +18,7 @@ export class UserService {
 
   setUser() {
     this.currentUser = USERS[0];
+    // this.currentUser = null;
     this.currentUser$.next(this.currentUser);
   }
 

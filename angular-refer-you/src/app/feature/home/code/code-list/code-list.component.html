@@ -1,7 +1,9 @@
 
 <mat-card style="margin: 100px; margin-top: 50px;">
 
-  <div class="mat-card-title">Codes</div>
+  <div class="mat-card-header"><div class="mat-card-title">Codes</div></div>
+
+  <button mat-raised-button color="primary" *ngIf="isLogged()">Add new code</button>
 
   <mat-spinner *ngIf="allCodes === null"></mat-spinner>
 
@@ -10,10 +12,5 @@
       <app-code-list-item [code]="code"></app-code-list-item>
     </div>
   </div>
-
-
-
-
-
 </mat-card>
 

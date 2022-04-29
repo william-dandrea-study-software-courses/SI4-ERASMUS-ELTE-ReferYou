@@ -23,6 +23,12 @@
 
       <a>Click to see : {{code!.redirect_url}}</a>
 
+      <div style="margin-top: 30px;" *ngIf="isAtCurrentUser()">
+        <button mat-raised-button color="primary" style="margin-right:20px">Sponsor this code</button>
+        <button mat-stroked-button color="primary" style="margin-right:20px">Update this code</button>
+        <button mat-flat-button color="warn" style="margin-right:20px">Delete this code</button>
+      </div>
+
 
 
     </mat-expansion-panel>

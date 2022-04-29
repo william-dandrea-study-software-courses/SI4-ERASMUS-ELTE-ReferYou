@@ -8,7 +8,7 @@ import {Rating} from "../../core/models/rating.model";
 export let CODES: Code[] = [
   {
     code_id: 0,
-    user_id: 1,
+    user_id: 0,
     website_id: 0,
     code_value: "30% reduction at the inscription",
     description: "You need to go on the website and do ...",
@@ -19,7 +19,7 @@ export let CODES: Code[] = [
   },
   {
     code_id: 1,
-    user_id: 3,
+    user_id: 0,
     website_id: 0,
     code_value: "30% reduction at the inscription",
     description: "You need to go on the website and do ...",
@@ -140,7 +140,7 @@ export let SPONSORS: Sponsor[] = [
   },
   {
     code_id: 2,
-    user_id: 1,
+    user_id: 0,
     amount: 30,
   },
   {

@@ -27,4 +27,7 @@ export class WebsiteService {
   }
 
 
+  deleteWebsite(website_id: number) {
+    this.allWebsites = this.allWebsites!.filter(website => website.website_id != website_id);
+  }
 }
