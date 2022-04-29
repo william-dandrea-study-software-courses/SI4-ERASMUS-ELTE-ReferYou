@@ -1,29 +1,29 @@
 package com.referyou.promotionservice.controllers;
 
-import com.referyou.promotionservice.models.Promotion;
+import com.referyou.promotionservice.entity.Sponsor;
 import org.apache.commons.lang.NotImplementedException;
 import org.springframework.web.bind.annotation.*;
 
 @RestController("/promotion")
-public class PromotionController {
+public class SponsorController {
 
     @PostMapping("/")
-    public Promotion CreatePromotion(Float value) {
+    public Sponsor CreatePromotion(Float value) {
         throw new NotImplementedException();
     }
 
     @GetMapping("/{id}")
-    public Promotion GetPromotionById(@PathVariable Long id) {
+    public Sponsor GetPromotionById(@PathVariable Long id) {
         throw new NotImplementedException();
     }
 
     @GetMapping("/")
-    public Promotion GetPromotionByCodeId(@RequestParam("codeId") Long codeId) {
+    public Sponsor GetPromotionByCodeId(@RequestParam("codeId") Long codeId) {
         throw new NotImplementedException();
     }
 
     @DeleteMapping("/")
-    public Promotion DeletePromotionsByCodeId(@RequestParam("codeId") Long codeId) {
+    public Sponsor DeletePromotionsByCodeId(@RequestParam("codeId") Long codeId) {
         throw new NotImplementedException();
     }
 
