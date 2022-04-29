@@ -43,7 +43,7 @@ export let CODES: Code[] = [
     code_id: 3,
     user_id: 3,
     website_id: 1,
-    code_value: "30% reduction at the inscription",
+    code_value: "30D584",
     description: "You need to go on the website and do ...",
     expiration_date: new Date(2023, 12, 13),
     creation_date: new Date(),
@@ -53,8 +53,8 @@ export let CODES: Code[] = [
   {
     code_id: 4,
     user_id: 1,
-    website_id: 2,
-    code_value: "30% reduction at the inscription",
+    website_id: 3,
+    code_value: "4HFKDR",
     description: "You need to go on the website and do ...",
     expiration_date: new Date(2022, 8, 13),
     creation_date: new Date(),
@@ -63,9 +63,9 @@ export let CODES: Code[] = [
   },
   {
     code_id: 5,
-    user_id: 0,
+    user_id: 1,
     website_id: 2,
-    code_value: "30% reduction at the inscription",
+    code_value: "GDFKEO",
     description: "You need to go on the website and do ...",
     expiration_date: new Date(2023, 4, 13),
     creation_date: new Date(),
@@ -125,7 +125,7 @@ export let WEBSITES: Website[] = [
     description: "Banque",
   },
   {
-    website_id: 5,
+    website_id: 4,
     url: "www.coinbase.com",
     description: "Crypto exchange",
   }

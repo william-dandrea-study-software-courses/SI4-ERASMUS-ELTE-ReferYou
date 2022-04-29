@@ -1,1 +1,19 @@
-<p>code-list works!</p>
+
+<mat-card style="margin: 100px; margin-top: 50px;">
+
+  <div class="mat-card-title">Codes</div>
+
+  <mat-spinner *ngIf="allCodes === null"></mat-spinner>
+
+  <div class="mat-card-content mt50px" *ngIf="allCodes !== null">
+    <div *ngFor="let code of allCodes" class="full-width">
+      <app-code-list-item [code]="code"></app-code-list-item>
+    </div>
+  </div>
+
+
+
+
+
+</mat-card>
+

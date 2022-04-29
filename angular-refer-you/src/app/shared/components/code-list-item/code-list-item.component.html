@@ -1,0 +1,37 @@
+
+<div *ngIf="website && owner && positiveRatings" class="full-width mt5px">
+
+
+  <mat-accordion>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{website!.url}}
+        </mat-panel-title>
+        <mat-panel-description>
+          {{code!.code_value}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <p>Description : {{code!.description}} </p>
+      <p>Validity : {{code!.creation_date | date}} to {{code!.expiration_date | date}}</p>
+      <p>Owner : {{owner!.mail}}</p>
+      <p>Number of uses : {{code!.number_of_uses}}</p>
+      <p>Positive ratings : {{positiveRatings!.length}}</p>
+      <p>Negatives ratings : {{negativeRatings!.length}}</p>
+
+      <a>Click to see : {{code!.redirect_url}}</a>
+
+
+
+    </mat-expansion-panel>
+  </mat-accordion>
+
+
+
+</div>
+
+
+
+<mat-spinner *ngIf="website === undefined || owner === undefined || positiveRatings === undefined" [diameter]="20"></mat-spinner>

@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {User} from "../models/user.model";
 import {BehaviorSubject} from "rxjs";
-import {CODES, USERS} from '../../shared/mocks/codes.mock';
+import {USERS} from '../../shared/mocks/codes.mock';
 
 @Injectable({
   providedIn: 'root'
@@ -19,5 +19,10 @@ export class UserService {
   setUser() {
     this.currentUser = USERS[0];
     this.currentUser$.next(this.currentUser);
+  }
+
+
+  public userFromId(id: number): BehaviorSubject<User | undefined> {
+    return new BehaviorSubject<User | undefined>(USERS.find(u => u.user_id === id));
   }
 }

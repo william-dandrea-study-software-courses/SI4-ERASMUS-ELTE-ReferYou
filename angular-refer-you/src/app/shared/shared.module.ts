@@ -17,6 +17,9 @@ import {DragDropModule} from "@angular/cdk/drag-drop";
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {MatOptionModule} from "@angular/material/core";
 import {MatExpansionModule} from "@angular/material/expansion";
+import { CodeListItemComponent } from './components/code-list-item/code-list-item.component';
+import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 const modules = [
   CommonModule,
@@ -47,14 +50,18 @@ const components = [
 @NgModule({
     declarations: [
       ...components,
+      CodeListItemComponent,
     ],
-    exports: [
-      ...modules,
-      ...components,
-    ],
-    imports: [
-      ...modules
-    ]
+  exports: [
+    ...modules,
+    ...components,
+    CodeListItemComponent,
+  ],
+  imports: [
+    ...modules,
+    MatProgressBarModule,
+    MatProgressSpinnerModule
+  ]
 })
 export class SharedModule {
   static forRoot() {
