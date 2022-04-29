@@ -1,7 +1,7 @@
-package com.referyou.promotionservice.repository;
+package databasemodels.repository;
 
-import com.referyou.promotionservice.entity.Rating;
-import com.referyou.promotionservice.entity.RatingId;
+import databasemodels.entity.Rating;
+import databasemodels.entity.RatingId;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,34 +1,22 @@
 package com.referyou.promotionservice.controllers;
 
-import com.referyou.promotionservice.entity.Sponsor;
-import org.apache.commons.lang.NotImplementedException;
-import org.springframework.web.bind.annotation.*;
+import com.referyou.promotionservice.service.SponsorService;
+import databasemodels.entity.Sponsor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@RestController("/promotion")
+@RestController
 public class SponsorController {
 
-    @PostMapping("/")
-    public Sponsor CreatePromotion(Float value) {
-        throw new NotImplementedException();
+    private final SponsorService sponsorService;
+
+    public SponsorController(SponsorService sponsorService) {
+        this.sponsorService = sponsorService;
     }
 
-    @GetMapping("/{id}")
-    public Sponsor GetPromotionById(@PathVariable Long id) {
-        throw new NotImplementedException();
-    }
-
-    @GetMapping("/")
-    public Sponsor GetPromotionByCodeId(@RequestParam("codeId") Long codeId) {
-        throw new NotImplementedException();
-    }
-
-    @DeleteMapping("/")
-    public Sponsor DeletePromotionsByCodeId(@RequestParam("codeId") Long codeId) {
-        throw new NotImplementedException();
-    }
-
-    @GetMapping("/value")
-    public Float GetPromotionValueByCodeId(@RequestParam("codeId") Long codeId) {
-        throw new NotImplementedException();
+    @PostMapping("/sponsor")
+    public void CreateSponsor(Sponsor sponsor) {
+        sponsorService.CreateSponsor(sponsor);
     }
 }

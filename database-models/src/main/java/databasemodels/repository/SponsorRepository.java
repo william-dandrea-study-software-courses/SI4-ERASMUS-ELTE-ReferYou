@@ -1,7 +1,7 @@
-package com.referyou.promotionservice.repository;
+package databasemodels.repository;
 
-import com.referyou.promotionservice.entity.Sponsor;
-import com.referyou.promotionservice.entity.SponsorId;
+import databasemodels.entity.Sponsor;
+import databasemodels.entity.SponsorId;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

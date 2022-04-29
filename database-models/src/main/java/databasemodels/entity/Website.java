@@ -1,4 +1,4 @@
-package com.referyou.promotionservice.entity;
+package databasemodels.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sun.istack.NotNull;

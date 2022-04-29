@@ -1,6 +1,6 @@
-package com.referyou.promotionservice.repository;
+package databasemodels.repository;
 
-import com.referyou.promotionservice.entity.Code;
+import databasemodels.entity.Code;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

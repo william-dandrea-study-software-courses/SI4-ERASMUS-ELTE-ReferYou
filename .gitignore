@@ -1,2 +1,5 @@
 .idea
-angular-refer-you/package-lock.json
+**/package-lock.json
+*.class
+
+**/target/**
