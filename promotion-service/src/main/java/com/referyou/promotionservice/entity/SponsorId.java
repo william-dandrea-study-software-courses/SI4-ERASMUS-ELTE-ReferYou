@@ -6,6 +6,6 @@ import java.io.Serializable;
 
 @AllArgsConstructor
 public class SponsorId implements Serializable {
-    private User user;
-    private Code code;
+    private long userId;
+    private long codeId;
 }

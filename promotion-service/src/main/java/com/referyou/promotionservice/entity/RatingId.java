@@ -6,6 +6,6 @@ import java.io.Serializable;
 
 @AllArgsConstructor
 public class RatingId implements Serializable {
-    private long userID;
-    private long codeID;
+    private long userId;
+    private long codeId;
 }
