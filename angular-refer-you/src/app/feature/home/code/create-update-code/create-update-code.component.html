@@ -23,14 +23,14 @@
       </mat-form-field>
 
       <mat-form-field appearance="fill" class="full-width">
-        <mat-label>Expiration date</mat-label>
+        <mat-label>Redirect url</mat-label>
         <input matInput type="text" formControlName="redirect_url">
       </mat-form-field>
 
       <mat-form-field appearance="fill" class="full-width">
         <mat-label>Website</mat-label>
-        <mat-select>
-          <mat-option *ngFor="let website of websites" value={{website.website_id}} >{{website.url}}</mat-option>
+        <mat-select formControlName="website_id">
+          <mat-option *ngFor="let website of websites" [value]=website.website_id >{{website.url}}</mat-option>
         </mat-select>
       </mat-form-field>
 

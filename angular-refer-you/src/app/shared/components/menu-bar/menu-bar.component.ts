@@ -1,6 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {UserService} from "../../../core/service/user.service";
 import {Subscription} from "rxjs";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-menu-bar',
@@ -12,7 +13,7 @@ export class MenuBarComponent implements OnInit, OnDestroy {
   private isLoggedSubscription: Subscription = new Subscription();
   public isLogged: boolean = false;
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private router: Router) {}
 
   ngOnInit(): void {
     this.isLoggedManager()
@@ -29,6 +30,10 @@ export class MenuBarComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.isLoggedSubscription.unsubscribe();
+  }
+
+  public onCodeButton(): any {
+    this.router.navigate(['home', 'code']);
   }
 
 

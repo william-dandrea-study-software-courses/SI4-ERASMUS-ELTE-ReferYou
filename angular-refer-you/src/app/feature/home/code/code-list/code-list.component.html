@@ -3,7 +3,7 @@
 
   <div class="mat-card-header"><div class="mat-card-title">Codes</div></div>
 
-  <button mat-raised-button color="primary" *ngIf="isLogged()">Add new code</button>
+  <button mat-raised-button color="primary" *ngIf="isLogged()" (click)="onAddNewCode()">Add new code</button>
 
   <mat-spinner *ngIf="allCodes === null"></mat-spinner>
 

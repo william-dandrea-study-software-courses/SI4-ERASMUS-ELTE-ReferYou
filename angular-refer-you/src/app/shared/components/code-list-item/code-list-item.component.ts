@@ -6,6 +6,7 @@ import {WebsiteService} from "../../../core/service/website.service";
 import {UserService} from "../../../core/service/user.service";
 import {RatingService} from "../../../core/service/rating.service";
 import {Rating} from "../../../core/models/rating.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-code-list-item',
@@ -22,7 +23,7 @@ export class CodeListItemComponent implements OnInit {
 
   public panelOpenState: boolean = false;
 
-  constructor(private websiteService: WebsiteService, private userService: UserService, private ratingService: RatingService) {}
+  constructor(private websiteService: WebsiteService, private userService: UserService, private ratingService: RatingService, private router: Router) {}
 
   ngOnInit(): void {
     this.websiteFromId();
@@ -50,4 +51,15 @@ export class CodeListItemComponent implements OnInit {
     return this.userService && this.userService.currentUser?.user_id === this.code?.user_id
   }
 
+  public onSponsorBtn(): void {
+
+  }
+
+  public onUpdateBtn(): void {
+    this.router.navigate(['home', 'code', 'update', this.code?.code_id]);
+  }
+
+  public onDeleteBtn(): void {
+
+  }
 }

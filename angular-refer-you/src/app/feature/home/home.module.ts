@@ -9,6 +9,7 @@ import {MatSortModule} from "@angular/material/sort";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { CreateUpdateCodeComponent } from './code/create-update-code/create-update-code.component';
 import {MatSelectModule} from "@angular/material/select";
+import {MatSnackBar, MatSnackBarModule} from "@angular/material/snack-bar";
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import {MatSelectModule} from "@angular/material/select";
     MatGridListModule,
     MatSortModule,
     MatProgressSpinnerModule,
-    MatSelectModule
+    MatSelectModule,
+    MatSnackBarModule,
   ]
 })
 export class HomeModule { }

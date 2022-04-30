@@ -23,11 +23,21 @@ export class WebsiteService {
   }
 
   public websiteFromId(id: number): BehaviorSubject<Website | undefined> {
-    return new BehaviorSubject<Website | undefined>(WEBSITES.find(w => w.website_id === id));
+    return new BehaviorSubject<Website | undefined>(this.allWebsites!.find(w => w.website_id == +id));
   }
 
 
   deleteWebsite(website_id: number) {
-    this.allWebsites = this.allWebsites!.filter(website => website.website_id != website_id);
+    this.allWebsites = this.allWebsites!.filter(website => website.website_id != +website_id);
+    this.allWebsites$.next(this.allWebsites);
+  }
+
+  addWebsite(url: string, description: string): void {
+    this.allWebsites?.push({
+      website_id: this.allWebsites?.length,
+      url: url,
+      description: description,
+    });
+    this.allWebsites$.next(this.allWebsites);
   }
 }

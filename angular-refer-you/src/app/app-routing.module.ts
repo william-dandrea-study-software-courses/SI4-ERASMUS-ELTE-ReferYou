@@ -5,7 +5,11 @@ import {AuthModule} from "./feature/auth/auth.module";
 import {HomeModule} from "./feature/home/home.module";
 import {AuthGuard} from "./core/helper/auth.guard";
 const routes: Routes = [
-
+  {
+    path: "",
+    loadChildren: () => import('./feature/home/home.module').then(m => m.HomeModule),
+    canActivate: [AuthGuard]
+  },
   {
     path: "auth",
     loadChildren: () => import('./feature/auth/auth.module').then(m => m.AuthModule),

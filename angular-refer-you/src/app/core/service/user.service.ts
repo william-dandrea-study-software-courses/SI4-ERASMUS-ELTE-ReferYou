@@ -24,6 +24,6 @@ export class UserService {
 
 
   public userFromId(id: number): BehaviorSubject<User | undefined> {
-    return new BehaviorSubject<User | undefined>(USERS.find(u => u.user_id === id));
+    return new BehaviorSubject<User | undefined>(USERS.find(u => u.user_id == +id));
   }
 }
