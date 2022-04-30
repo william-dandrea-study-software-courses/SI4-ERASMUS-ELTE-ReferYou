@@ -2,17 +2,21 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+
 	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.6.7</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<groupId>com.elte.referyou</groupId>
+		<artifactId>spring-boot-multi-module-project</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<groupId>com.referyou</groupId>
+
+
+	<groupId>com.elte.referyou.modules</groupId>
 	<artifactId>promotion-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>promotion-service</name>
-	<description>ReferYou Java Spring Project - Promotion service</description>
+	<packaging>jar</packaging>
+
+
 	<properties>
 		<java.version>11</java.version>
 		<spring-cloud.version>2021.0.1</spring-cloud.version>
@@ -60,11 +64,13 @@
 			<artifactId>postgresql</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.example</groupId>
+			<groupId>com.elte.referyou.modules</groupId>
 			<artifactId>database-models</artifactId>
-			<version>1.0-SNAPSHOT</version>
-			<scope>compile</scope>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+
+
+
 	</dependencies>
 
 	<dependencyManagement>
