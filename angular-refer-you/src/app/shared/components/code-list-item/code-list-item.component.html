@@ -24,7 +24,30 @@
       <a>Click to see : {{code!.redirect_url}}</a>
 
       <div style="margin-top: 30px;" *ngIf="isAtCurrentUser()">
-        <button mat-raised-button color="primary" style="margin-right:20px" (click)="onSponsorBtn()">Sponsor this code</button>
+
+
+        <mat-card style="margin-bottom: 20px;">
+          <mat-card-subtitle>Sponsor this code</mat-card-subtitle>
+
+          <mat-card-content>
+            <form (ngSubmit)="onSponsorBtn()" [formGroup]="sponsoringForm">
+              <mat-form-field appearance="fill">
+                <mat-label>Sponsoring amount</mat-label>
+                <input matInput placeholder="10EUR" value="" type="number" formControlName="amount">
+              </mat-form-field>
+              <button mat-raised-button color="primary" style="margin-left:20px" type="submit">Sponsor</button>
+            </form>
+          </mat-card-content>
+
+          <mat-card-subtitle>Your sponsorships on this code</mat-card-subtitle>
+          <mat-card-content>
+            <mat-chip-list aria-label="Sponsorships">
+              <mat-chip *ngFor="let sponsorship of sponsorships">{{sponsorship.amount}}</mat-chip>
+            </mat-chip-list>
+          </mat-card-content>
+
+        </mat-card>
+
         <button mat-stroked-button color="primary" style="margin-right:20px" (click)="onUpdateBtn()">Update this code</button>
         <button mat-flat-button color="warn" style="margin-right:20px" (click)="onDeleteBtn()">Delete this code</button>
       </div>

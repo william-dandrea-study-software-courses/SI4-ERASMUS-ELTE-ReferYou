@@ -16,15 +16,6 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 })
 export class CreateUpdateCodeComponent implements OnInit, OnDestroy {
 
-  /**
-   * website_id: number,
-     code_value: string,
-     description: string,
-     expiration_date: any,
-     redirect_url: string,
-   * @private
-   */
-
   private subscriptionRoute: Subscription = new Subscription();
   private subscriptionParamsRoute: Subscription = new Subscription();
 

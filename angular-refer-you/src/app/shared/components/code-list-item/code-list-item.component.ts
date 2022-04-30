@@ -7,6 +7,9 @@ import {UserService} from "../../../core/service/user.service";
 import {RatingService} from "../../../core/service/rating.service";
 import {Rating} from "../../../core/models/rating.model";
 import {Router} from "@angular/router";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {SponsorService} from "../../../core/service/sponsor.service";
+import {Sponsor} from "../../../core/models/sponsor.model";
 
 @Component({
   selector: 'app-code-list-item',
@@ -23,12 +26,21 @@ export class CodeListItemComponent implements OnInit {
 
   public panelOpenState: boolean = false;
 
-  constructor(private websiteService: WebsiteService, private userService: UserService, private ratingService: RatingService, private router: Router) {}
+  public sponsoringForm: FormGroup = this.formBuilder.group({
+    amount: ["", [Validators.required]],
+  });
+  public sponsorships: Sponsor[] | null = []
+
+  constructor(private websiteService: WebsiteService, private userService: UserService, private ratingService: RatingService, private router: Router, private formBuilder: FormBuilder, private sponsorService: SponsorService) {}
 
   ngOnInit(): void {
     this.websiteFromId();
     this.userFromId();
     this.ratingCode();
+
+    this.sponsorService.sponsorsForCurrentUser(this.code!.code_id).subscribe(sponsors => {
+      this.sponsorships = sponsors;
+    })
 
   }
 
@@ -52,7 +64,8 @@ export class CodeListItemComponent implements OnInit {
   }
 
   public onSponsorBtn(): void {
-
+    const formValue = this.sponsoringForm.value;
+    this.sponsorService.addSponsor(this.code!.code_id, formValue.amount);
   }
 
   public onUpdateBtn(): void {
