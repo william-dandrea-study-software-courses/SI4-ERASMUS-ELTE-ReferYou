@@ -21,6 +21,9 @@
       <p>Positive ratings : {{positiveRatings!.length}}</p>
       <p>Negatives ratings : {{negativeRatings!.length}}</p>
 
+      <button mat-stroked-button color="accent" style="margin-right:20px" (click)="onLike()">Add positive review</button>
+      <button mat-stroked-button color="warn" style="margin-right:20px" (click)="onDislike()">Add negative review</button>
+
       <a>Click to see : {{code!.redirect_url}}</a>
 
       <div style="margin-top: 30px;" *ngIf="isAtCurrentUser()">

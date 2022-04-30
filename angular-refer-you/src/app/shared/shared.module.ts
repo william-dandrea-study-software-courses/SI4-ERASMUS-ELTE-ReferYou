@@ -20,6 +20,7 @@ import {MatExpansionModule} from "@angular/material/expansion";
 import { CodeListItemComponent } from './components/code-list-item/code-list-item.component';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 const modules = [
   CommonModule,
@@ -40,6 +41,7 @@ const modules = [
   MatOptionModule,
   MatExpansionModule,
   FormsModule,
+  MatSnackBarModule,
 ]
 
 const components = [

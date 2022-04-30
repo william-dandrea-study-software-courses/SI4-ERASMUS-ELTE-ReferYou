@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import {Website} from "../models/website.model";
-import {BehaviorSubject} from "rxjs";
+import {BehaviorSubject, Observable} from "rxjs";
 import {RATINGS, WEBSITES} from "../../shared/mocks/codes.mock";
 import {Rating} from "../models/rating.model";
+import {UserService} from "./user.service";
+import {map} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +14,7 @@ export class RatingService {
   public allRatings: Rating[] | null = null;
   public allRatings$: BehaviorSubject<Rating[] | null> = new BehaviorSubject<Rating[] | null>(null)
 
-  constructor() {
+  constructor(private userService: UserService) {
     this.setRatings()
   }
 
@@ -38,12 +40,33 @@ export class RatingService {
     return new BehaviorSubject<Rating | undefined>(RATINGS.find(r => r.user_id == +userId));
   }
 
-  public ratingFromCodeId(codeId: number): BehaviorSubject<Rating[] | undefined> {
-    const ratings: Rating[] = RATINGS.filter(r => r.code_id == +codeId);
-    return new BehaviorSubject<Rating[] | undefined>(ratings);
+  public ratingFromCodeId(codeId: number): Observable<Rating[]> {
+
+    return this.allRatings$.pipe(
+      map(ratings => ratings!.filter(rating => rating.code_id == codeId))
+    )
+
+
   }
 
 
+  public addLike(code_id: number): void {
+    this.allRatings?.push({
+      code_id: code_id,
+      user_id: this.userService.currentUser!.user_id,
+      is_negative: false,
+      is_positive: true,
+    });
+    this.allRatings$.next(this.allRatings);
+  }
 
-
+  public addDislike(code_id: number): void {
+    this.allRatings?.push({
+      code_id: code_id,
+      user_id: this.userService.currentUser!.user_id,
+      is_negative: true,
+      is_positive: false,
+    });
+    this.allRatings$.next(this.allRatings);
+  }
 }

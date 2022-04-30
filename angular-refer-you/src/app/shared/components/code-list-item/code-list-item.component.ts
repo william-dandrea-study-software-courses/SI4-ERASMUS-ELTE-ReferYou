@@ -10,6 +10,8 @@ import {Router} from "@angular/router";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {SponsorService} from "../../../core/service/sponsor.service";
 import {Sponsor} from "../../../core/models/sponsor.model";
+import {MatSnackBar} from "@angular/material/snack-bar";
+import {CodeService} from "../../../core/service/code.service";
 
 @Component({
   selector: 'app-code-list-item',
@@ -31,7 +33,7 @@ export class CodeListItemComponent implements OnInit {
   });
   public sponsorships: Sponsor[] | null = []
 
-  constructor(private websiteService: WebsiteService, private userService: UserService, private ratingService: RatingService, private router: Router, private formBuilder: FormBuilder, private sponsorService: SponsorService) {}
+  constructor(private codeService: CodeService, private snackBar: MatSnackBar, private websiteService: WebsiteService, private userService: UserService, private ratingService: RatingService, private router: Router, private formBuilder: FormBuilder, private sponsorService: SponsorService) {}
 
   ngOnInit(): void {
     this.websiteFromId();
@@ -66,6 +68,7 @@ export class CodeListItemComponent implements OnInit {
   public onSponsorBtn(): void {
     const formValue = this.sponsoringForm.value;
     this.sponsorService.addSponsor(this.code!.code_id, formValue.amount);
+    this.snackBar.open('Sponsorhsip added', "Ok");
   }
 
   public onUpdateBtn(): void {
@@ -73,6 +76,16 @@ export class CodeListItemComponent implements OnInit {
   }
 
   public onDeleteBtn(): void {
+    this.codeService.deleteCode(this.code!.code_id);
+  }
 
+  public onLike(): void {
+    this.ratingService.addLike(this.code!.code_id);
+    this.snackBar.open('Like added', "Ok");
+  }
+
+  public onDislike(): void {
+    this.ratingService.addDislike(this.code!.code_id);
+    this.snackBar.open('Dislike added', "Ok");
   }
 }
