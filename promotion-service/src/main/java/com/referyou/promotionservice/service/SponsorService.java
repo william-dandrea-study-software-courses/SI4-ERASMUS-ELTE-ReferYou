@@ -2,9 +2,8 @@ package com.referyou.promotionservice.service;
 
 
 
-import databasemodels.entity.Sponsor;
-import databasemodels.repository.SponsorRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.referyou.promotionservice.entity.Sponsor;
+import com.referyou.promotionservice.repository.SponsorRepository;
 import org.springframework.stereotype.Service;
 
 @Service

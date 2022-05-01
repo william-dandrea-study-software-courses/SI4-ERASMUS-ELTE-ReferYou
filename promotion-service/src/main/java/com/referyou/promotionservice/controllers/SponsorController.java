@@ -1,7 +1,8 @@
 package com.referyou.promotionservice.controllers;
 
+import com.referyou.promotionservice.entity.Sponsor;
 import com.referyou.promotionservice.service.SponsorService;
-import databasemodels.entity.Sponsor;
+//import databasemodels.entity.Sponsor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
