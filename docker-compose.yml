@@ -1,0 +1,95 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:latest
+    container_name: referyou.db
+    expose: 
+      - "5432:5432"
+    networks:
+      - database
+    environment:
+      POSTGRES_USER: backend
+      POSTGRES_PASSWORD: PASSWORD
+      POSTGRES_DB: ReferYou
+
+  database-models:
+    build:
+      context: ./database-models
+    container_name: referyou.database-models
+    depends_on:
+      - db
+    networks:
+      - database
+
+  service-registry:
+    build:
+      context: ./service-registry
+    container_name: referyou.service-registry
+    networks:
+      - backend
+
+  authentification-service:
+    build:
+      context: ./authentification-service
+    container_name: referyou.authentification-service
+    depends_on:
+      - service-registry
+      - database-models
+    networks:
+      - backend
+      - database
+
+  distribution-service:
+    build:
+      context: ./distribution-service
+    container_name: referyou.distribution-service
+    depends_on:
+      - service-registry
+      - database-models
+    networks:
+      - database
+      - backend
+
+  moderation-service:
+    build:
+      context: ./moderation-service
+    container_name: referyou.moderation-service
+    depends_on:
+      - service-registry
+      - database-models
+    networks:
+      - database
+      - backend
+
+  promotion-service:
+    build:
+      context: ./promotion-service
+    container_name: referyou.promotion-service
+    depends_on:
+      - service-registry
+      - database-models
+    networks:
+      - database
+      - backend
+
+  cloud-gateway:
+    build:
+      context: ./cloud-gateway
+    container_name: referyou.cloud-gateway
+    depends_on:
+      - authentification-service
+      - distribution-service
+      - promotion-service
+      - moderation-service
+    expose:
+      - "8080:8080"
+    networks:
+      - backend
+
+
+networks:
+  backend:
+    driver: bridge
+  database:
+    driver: bridge
