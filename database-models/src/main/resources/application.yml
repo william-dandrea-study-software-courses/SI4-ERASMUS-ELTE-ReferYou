@@ -5,10 +5,10 @@ spring:
     application:
         name: DATABASE-SERVICE
     datasource:
-        url: jdbc:postgresql://localhost:5432/ReferYou
+        url: jdbc:postgresql://db:5432/ReferYou
         platform: POSTGRESQL
         username: backend
-        password: <PASSWORD>
+        password: PASSWORD
     jpa:
         hibernate:
             ddl-auto: create-drop

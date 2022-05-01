@@ -5,10 +5,10 @@ spring:
     application:
         name: PROMOTION-SERVICE
     datasource:
-        url: jdbc:postgresql://localhost:5432/ReferYou
+        url: jdbc:postgresql://db:5432/ReferYou
         platform: POSTGRESQL
         username: backend
-        password: <PASSWORD>
+        password: PASSWORD
     jpa:
         hibernate:
             ddl-auto: create-drop
@@ -20,6 +20,6 @@ eureka:
         register-with-eureka: true
         fetch-registry: true
         service-url:
-            defaultZone: http://localhost:8085/eureka
+            defaultZone: http://service-registry:8085/eureka
         instance:
             hostname: localhost
