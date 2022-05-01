@@ -6,29 +6,28 @@
 
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.elte.referyou</groupId>
-        <artifactId>spring-boot-multi-module-project</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
-    </parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.6.7</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
 
 
     <groupId>com.elte.referyou.modules</groupId>
     <artifactId>database-models</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>
+        jar
+    </packaging>
 
 
     <properties>
-
         <java-version>11</java-version>
     </properties>
 
     <dependencies>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -47,5 +46,20 @@
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
     </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+        <defaultGoal>
+            compile
+        </defaultGoal>
+    </build>
 </project>

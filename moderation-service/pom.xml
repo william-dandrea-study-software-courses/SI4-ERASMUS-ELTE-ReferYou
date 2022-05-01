@@ -4,9 +4,10 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>com.elte.referyou</groupId>
-		<artifactId>spring-boot-multi-module-project</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.6.7</version>
+		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
 
@@ -90,6 +91,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<defaultGoal>compile</defaultGoal>
 	</build>
 
 </project>
