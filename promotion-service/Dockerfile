@@ -15,6 +15,6 @@ RUN mvn clean package -Dmaven.test.skip
 #
 FROM openjdk:11-jre-slim
 COPY --from=build /service /service
-EXPOSE 8085
+EXPOSE 8081
 ENTRYPOINT ["java","-jar","/service/target/promotion-service-0.0.1-SNAPSHOT.jar"]
 # RUN /bin/sh

@@ -13,6 +13,6 @@ RUN mvn clean package
 #
 FROM openjdk:11-jre-slim
 COPY --from=build /service /service
-EXPOSE 8085
+EXPOSE 8089
 ENTRYPOINT ["java","-jar","/service/target/database-models-0.0.1-SNAPSHOT.jar"]
 # RUN /bin/sh
