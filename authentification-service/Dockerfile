@@ -6,7 +6,7 @@ RUN mkdir /service
 COPY src /service/src
 COPY pom.xml /service
 WORKDIR /service
-RUN mvn clean package
+RUN mvn clean package -Dmaven.test.skip
 
 #
 # Package stage

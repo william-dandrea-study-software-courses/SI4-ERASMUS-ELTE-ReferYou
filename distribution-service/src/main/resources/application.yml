@@ -4,6 +4,11 @@ server:
 spring:
     application:
         name: DISTRIBUTION-SERVICE
+    datasource:
+        url: jdbc:postgresql://db:5432/ReferYou
+        platform: POSTGRESQL
+        username: backend
+        password: PASSWORD
 
 eureka:
     client:

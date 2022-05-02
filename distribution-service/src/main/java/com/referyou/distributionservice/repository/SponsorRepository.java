@@ -1,7 +1,7 @@
 package com.referyou.distributionservice.repository;
 
-import com.referyou.promotionservice.entity.Sponsor;
-import com.referyou.promotionservice.entity.SponsorId;
+import com.referyou.distributionservice.entity.Sponsor;
+import com.referyou.distributionservice.entity.SponsorId;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

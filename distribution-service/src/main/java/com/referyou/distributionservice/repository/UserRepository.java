@@ -1,6 +1,6 @@
 package com.referyou.distributionservice.repository;
 
-import com.referyou.promotionservice.entity.Person;
+import com.referyou.distributionservice.entity.Person;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

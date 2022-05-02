@@ -9,10 +9,6 @@ spring:
         platform: POSTGRESQL
         username: backend
         password: PASSWORD
-    jpa:
-        hibernate:
-            ddl-auto: create-drop
-            show_sql: true
 #        properties.hibernate.temp.use_jdbc_metadata_defaults: false
 
 eureka:

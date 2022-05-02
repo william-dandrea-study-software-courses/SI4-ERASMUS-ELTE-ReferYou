@@ -1,7 +1,7 @@
 package com.referyou.authentificationservice.repository;
 
-import com.referyou.promotionservice.entity.Rating;
-import com.referyou.promotionservice.entity.RatingId;
+import com.referyou.authentificationservice.entity.Rating;
+import com.referyou.authentificationservice.entity.RatingId;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

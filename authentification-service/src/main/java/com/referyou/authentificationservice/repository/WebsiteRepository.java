@@ -1,6 +1,6 @@
 package com.referyou.authentificationservice.repository;
 
-import com.referyou.promotionservice.entity.Website;
+import com.referyou.authentificationservice.entity.Website;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

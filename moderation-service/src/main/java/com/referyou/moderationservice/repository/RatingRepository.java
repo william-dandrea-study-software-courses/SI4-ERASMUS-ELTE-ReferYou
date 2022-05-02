@@ -1,7 +1,7 @@
 package com.referyou.moderationservice.repository;
 
-import com.referyou.promotionservice.entity.Rating;
-import com.referyou.promotionservice.entity.RatingId;
+import com.referyou.moderationservice.entity.Rating;
+import com.referyou.moderationservice.entity.RatingId;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
