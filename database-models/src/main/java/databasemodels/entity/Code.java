@@ -70,4 +70,10 @@ public class Code {
     @JoinColumn(name = "website_id", insertable = false, updatable = false)
     @JsonIgnore
     public Website website;
+
+    @Getter
+    @OneToOne
+    @JoinColumn(name = "id", referencedColumnName = "code_id", insertable = false, updatable = false)
+    @JsonIgnore
+    public Sponsor sponsor;
 }

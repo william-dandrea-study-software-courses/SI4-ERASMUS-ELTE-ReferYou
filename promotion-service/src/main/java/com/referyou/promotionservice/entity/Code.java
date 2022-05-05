@@ -7,9 +7,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import reactor.util.annotation.Nullable;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 @Entity
 @AllArgsConstructor
@@ -70,4 +72,10 @@ public class Code {
     @JoinColumn(name = "website_id", insertable = false, updatable = false)
     @JsonIgnore
     public Website website;
+
+    @Getter
+    @OneToOne(optional = true)
+    @JoinColumn(name = "id", referencedColumnName = "code_id", insertable = false, updatable = false)
+    @JsonIgnore
+    public Sponsor sponsor;
 }

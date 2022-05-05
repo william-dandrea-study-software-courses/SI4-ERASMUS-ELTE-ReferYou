@@ -12,9 +12,8 @@ import javax.persistence.*;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@IdClass(SponsorId.class)
 public class Sponsor {
-    @Id @Getter
+    @Getter
     @Column(name = "user_id")
     @JsonProperty("user_id")
     private long userId;
@@ -30,7 +29,7 @@ public class Sponsor {
     @JsonIgnore
     private Person user;
 
-    @ManyToOne
+    @OneToOne
     @Getter
     @JoinColumn(name = "code_id", referencedColumnName = "id", insertable = false, updatable = false)
     @JsonIgnore
@@ -40,4 +39,10 @@ public class Sponsor {
     @Getter @Setter
     @JsonProperty("amount")
     private float amount;
+
+    public Sponsor(long userId, long codeId, float amount) {
+        this.userId = userId;
+        this.codeId = codeId;
+        this.amount = amount;
+    }
 }

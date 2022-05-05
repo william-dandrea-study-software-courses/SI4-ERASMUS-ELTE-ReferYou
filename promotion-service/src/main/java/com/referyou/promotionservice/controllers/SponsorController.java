@@ -1,13 +1,10 @@
 package com.referyou.promotionservice.controllers;
 
-import com.referyou.promotionservice.entity.Sponsor;
 import com.referyou.promotionservice.service.SponsorService;
-//import databasemodels.entity.Sponsor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/promotion")
 public class SponsorController {
 
     private final SponsorService sponsorService;
@@ -16,8 +13,23 @@ public class SponsorController {
         this.sponsorService = sponsorService;
     }
 
-    @PostMapping("/sponsor")
-    public void CreateSponsor(Sponsor sponsor) {
-        sponsorService.CreateSponsor(sponsor);
+
+    /**
+     * @param codeId The id of the code
+     * @return the sum of all the previous promotions
+     */
+    @GetMapping("{codeId}")
+    public float getAmountForCode(@PathVariable() long codeId) {
+        return sponsorService.getAmount(codeId);
     }
+
+    public static class PromoteRequest {
+        public float amount;
+    }
+    @PostMapping("{codeId}")
+    public float promote(@PathVariable() long codeId, @RequestBody() PromoteRequest body) {
+        return sponsorService.promote(codeId, body.amount);
+    }
+
+
 }
