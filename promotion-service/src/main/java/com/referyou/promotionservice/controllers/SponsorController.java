@@ -1,6 +1,7 @@
 package com.referyou.promotionservice.controllers;
 
 import com.referyou.promotionservice.service.SponsorService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -13,6 +14,10 @@ public class SponsorController {
         this.sponsorService = sponsorService;
     }
 
+    @GetMapping("")
+    public ResponseEntity<String> getTest() {
+        return ResponseEntity.ok("Test");
+    }
 
     /**
      * @param codeId The id of the code
