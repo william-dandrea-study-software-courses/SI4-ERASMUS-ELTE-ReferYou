@@ -16,7 +16,7 @@ public class PageController {
 
 
     @GetMapping("")
-    public ResponseEntity<String> getTest() {
+    public ResponseEntity<String> getDistributionTest() {
         return ResponseEntity.ok("Test");
     }
 

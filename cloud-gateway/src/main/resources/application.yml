@@ -10,7 +10,7 @@ spring:
                 - id: DISTRIBUTION-SERVICE
                   uri: lb://DISTRIBUTION-SERVICE
                   predicates:
-                    - Path=/distributions/**
+                    - Path=/distribution/**
                 - id: AUTHENTIFICATION-SERVICE
                   uri: lb://AUTHENTIFICATION-SERVICE
                   predicates:
