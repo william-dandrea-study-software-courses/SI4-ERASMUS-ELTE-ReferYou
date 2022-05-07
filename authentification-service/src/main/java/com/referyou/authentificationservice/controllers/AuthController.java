@@ -23,6 +23,7 @@ public class AuthController {
     }
 
 
+    @CrossOrigin(origins = "*")
     @GetMapping(path="", consumes = {"*/*"})
     public ResponseEntity<String> getAuthTest() {
         return ResponseEntity.ok("Auth Test Working 3");
@@ -36,6 +37,7 @@ public class AuthController {
      * }
      * @return Person entity if this person exist or null if not
      */
+    @CrossOrigin(origins = "*")
     @PostMapping(path="/register", consumes = {"*/*"})
     public ResponseEntity<Person> createNewUser(@RequestBody Map<String, String> mailAndPassword) {
         String mail = mailAndPassword.get("mail");
@@ -53,6 +55,7 @@ public class AuthController {
      * }
      * @return Person entity if this person exist or null if not
      */
+    @CrossOrigin(origins = "*")
     @PostMapping(path="/login", consumes = {"*/*"})
     public ResponseEntity<Person> login(@RequestBody Map<String, String> mailAndPassword) {
         String mail = mailAndPassword.get("mail");
@@ -63,21 +66,29 @@ public class AuthController {
         return personOptional.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.ok(null));
     }
 
+    @CrossOrigin(origins = "*")
+    @GetMapping(path="/connected", consumes = {"*/*"})
+    public ResponseEntity<Boolean> watchIfIsLogged(@RequestBody Map<String, String> tokensMap) {
+        String token = tokensMap.get("token");
+        return ResponseEntity.ok(this.authService.watchIfIsLogged(token));
+    }
+
+    @CrossOrigin(origins = "*")
     @GetMapping(path="/user/id", consumes = {"*/*"})
-    public ResponseEntity.BodyBuilder getUserById() {
-        return ResponseEntity.status(404);
+    public ResponseEntity<Person> getUserById(Map<String, Long> idMap) {
+        Long id = idMap.get("id");
+        Optional<Person> person = this.authService.getUserById(id);
+        return person.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.ok(null));
     }
 
-    @DeleteMapping(path="/user/id", consumes = {"*/*"})
-    public ResponseEntity.BodyBuilder deleteUserById() {
-        return ResponseEntity.status(404);
-    }
 
-    @PutMapping(path="/user/id", consumes = {"*/*"})
+
+    /** USLESS in our case
+    @PutMapping(path="/user/id", consumes = {"* / *"})
     public ResponseEntity.BodyBuilder updateUserById() {
         return ResponseEntity.status(404);
     }
-
+    **/
 
 
 

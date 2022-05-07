@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthServiceService} from "../../core/service/auth-service.service";
 
 @Component({
   selector: 'app-page-not-found',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageNotFoundComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthServiceService) {
+
+  }
 
   ngOnInit(): void {
+
+    this.authService.registerRequest("salut@gmail.com", "william").subscribe(value => {
+      console.log('Register :', value);
+
+
+
+
+    });
+
+
+
   }
 
 }

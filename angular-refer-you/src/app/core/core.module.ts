@@ -1,15 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UserComponent } from './service/user/user.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
 @NgModule({
-  declarations: [
-    UserComponent
-  ],
+  declarations: [],
   imports: [
-    CommonModule
+    CommonModule,
+    HttpClientModule,
   ]
 })
 export class CoreModule { }

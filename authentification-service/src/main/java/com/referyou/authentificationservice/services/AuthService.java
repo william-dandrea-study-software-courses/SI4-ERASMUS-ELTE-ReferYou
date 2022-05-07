@@ -61,14 +61,11 @@ public class AuthService {
 
     public boolean watchIfIsLogged(String token) {
         Optional<Person> personOp = this.userRepository.getUserByToken(token).stream().findFirst();
-
         return personOp.isPresent();
     }
 
-
-
-
-
-
+    public Optional<Person> getUserById(Long id) {
+        return this.userRepository.findById(id).stream().findFirst();
+    }
 
 }
