@@ -65,7 +65,7 @@ export class AuthServiceService {
 
   public loginRequest(email: string, password: string): Observable<any> {
     return this.http.post(
-        "http://localhost:8080/auth/login",
+        "http://localhost:8987/auth/login",
         JSON.stringify({
           mail: email,
           password: password
