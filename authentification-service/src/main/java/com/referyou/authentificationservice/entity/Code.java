@@ -72,7 +72,7 @@ public class Code {
     public Website website;
 
     @Getter
-    @OneToOne
+    @OneToOne(optional = true)
     @JoinColumn(name = "id", referencedColumnName = "code_id", insertable = false, updatable = false)
     @JsonIgnore
     public Sponsor sponsor;

@@ -16,6 +16,9 @@ docker compose up <service>
 ```
 **Wait _2 to 3_ minutes**
 
+### Option 2 :
+You can run the script `reboot.sh`, it will delete all docker containers, rebuild and restart all
+
 ## How to access to microservices
 
 The micro-services are managed on the port 8080. A gateway-service redirect all
@@ -31,3 +34,13 @@ the routes to the good microservices.
 
 
 #### Moderation routes
+
+
+##⚠️ If you want to edit a model.
+
+If you need to modify a model (an entity), you have to modify it in 
+- authentification-service/../entity
+- database-models/../entity
+- distribution-service/../entity
+- moderation-service/../entity
+- promotion-service/../entity
