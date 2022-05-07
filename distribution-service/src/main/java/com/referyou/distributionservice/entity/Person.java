@@ -1,14 +1,13 @@
 package com.referyou.distributionservice.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -29,4 +28,9 @@ public class Person {
 
     @Getter @Setter
     private String token;
+
+    @Getter
+    @JsonIgnore
+    @OneToMany(targetEntity = Code.class, mappedBy = "ownerId", cascade = CascadeType.REMOVE)
+    public List<Code> codes;
 }

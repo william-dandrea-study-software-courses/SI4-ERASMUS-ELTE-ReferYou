@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -18,7 +19,7 @@ public class Code {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Getter
+    @Getter @Setter
     @JsonProperty("code_id")
     private long id;
 
@@ -40,10 +41,12 @@ public class Code {
     private String RedirectUrl;
 
     @Getter @Setter
+    @DateTimeFormat(iso=DateTimeFormat.ISO.DATE_TIME)
     @JsonProperty("expiration_date")
     private LocalDateTime expirationDate;
 
     @Getter @Setter
+    @DateTimeFormat(iso=DateTimeFormat.ISO.DATE_TIME)
     @JsonProperty("creation_date")
     private LocalDateTime creationDate;
 
