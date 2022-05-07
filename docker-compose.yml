@@ -78,7 +78,7 @@ services:
       context: ./cloud-gateway
     container_name: referyou.cloud-gateway
     ports:
-      - 8080:8080
+      - 8987:8080
     depends_on:
       - authentification-service
       - distribution-service
