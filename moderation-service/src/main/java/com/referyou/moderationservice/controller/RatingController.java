@@ -27,13 +27,13 @@ public class RatingController {
     }
 
     @PostMapping("/code/{codeId}/user/{userId}/dislike")
-    public void dislike(@PathVariable long codeId, @PathVariable long userId) {
-        ratingService.dislike(codeId, userId);
+    public UserRating dislike(@PathVariable long codeId, @PathVariable long userId) {
+        return ratingService.dislike(codeId, userId);
     }
 
     @PostMapping("/code/{codeId}/user/{userId}/like")
-    public void like(@PathVariable long codeId, @PathVariable long userId) {
-        ratingService.like(codeId, userId);
+    public UserRating like(@PathVariable long codeId, @PathVariable long userId) {
+        return ratingService.like(codeId, userId);
     }
 
      @DeleteMapping("/code/{codeId}/user/{userId}")

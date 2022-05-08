@@ -22,7 +22,7 @@ public class RatingService {
         this.userRepository = userRepository;
     }
 
-    public void dislike(long codeId, long userId) {
+    public UserRating dislike(long codeId, long userId) {
         if(!codeRepository.existsById(codeId))
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Code not found");
         if(!userRepository.existsById(userId))
@@ -35,15 +35,19 @@ public class RatingService {
             codeRepository.deleteById(codeId);
         else
             ratingRepository.save(new Rating(userId, codeId, false, true));
+
+        return this.get(codeId, userId);
     }
 
-    public void like(long codeId, long userId) {
+    public UserRating like(long codeId, long userId) {
         if(!codeRepository.existsById(codeId))
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Code not found");
         if(!userRepository.existsById(userId))
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found");
 
         ratingRepository.save(new Rating(userId, codeId, true, false));
+
+        return this.get(codeId, userId);
     }
 
     public UserRating get(long codeId, long userId) {

@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
 import {User} from "../models/user.model";
-import {BehaviorSubject} from "rxjs";
+import {BehaviorSubject, Observable} from "rxjs";
 import {USERS} from '../../shared/mocks/codes.mock';
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -11,16 +12,10 @@ export class UserService {
   public currentUser: User | null = null;
   public currentUser$: BehaviorSubject<User | null> = new BehaviorSubject<User | null>(null)
 
-  constructor() {
-    // this.setUser();
+  constructor(private http: HttpClient,) {
   }
 
 
-  public setUser() {
-    this.currentUser = USERS[0];
-    // this.currentUser = null;
-    this.currentUser$.next(this.currentUser);
-  }
 
   public changeUser(id: number, mail: string, password: string, isBan: boolean, token: string): void {
     this.currentUser = {
@@ -38,7 +33,9 @@ export class UserService {
   }
 
 
-  public userFromId(id: number): BehaviorSubject<User | undefined> {
-    return new BehaviorSubject<User | undefined>(USERS.find(u => u.user_id == +id));
+  public userFromId(id: number): Observable<any> {
+
+    return this.http.get(`http://localhost:8987/auth/user/${id}`)
+    // return new BehaviorSubject<User | undefined>(USERS.find(u => u.user_id == +id));
   }
 }

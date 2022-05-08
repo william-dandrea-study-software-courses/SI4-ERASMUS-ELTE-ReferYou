@@ -37,4 +37,8 @@ export class MenuBarComponent implements OnInit, OnDestroy {
   }
 
 
+  disconnect() {
+    this.userService.resetUser();
+    this.router.navigate(['auth']);
+  }
 }

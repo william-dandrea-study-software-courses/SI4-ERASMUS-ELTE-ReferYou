@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule, DatePipe} from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     CommonModule,
     HttpClientModule,
-  ]
+  ],
+  providers: [DatePipe],
 })
 export class CoreModule { }

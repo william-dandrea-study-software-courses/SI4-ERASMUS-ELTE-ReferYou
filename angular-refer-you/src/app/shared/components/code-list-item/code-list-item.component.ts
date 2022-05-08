@@ -23,8 +23,8 @@ export class CodeListItemComponent implements OnInit {
   @Input() public code: Code | null = null;
   public website: Website | undefined = undefined;
   public owner: User | undefined = undefined;
-  public positiveRatings: Rating[] | undefined = undefined;
-  public negativeRatings: Rating[] | undefined = undefined;
+  public positiveRatings: number = 0;
+  public negativeRatings: number = 0;
 
   public panelOpenState: boolean = false;
 
@@ -40,6 +40,7 @@ export class CodeListItemComponent implements OnInit {
     this.userFromId();
     this.ratingCode();
 
+
     this.sponsorService.sponsorsForCurrentUser(this.code!.code_id).subscribe(sponsors => {
       this.sponsorships = sponsors;
     })
@@ -47,17 +48,22 @@ export class CodeListItemComponent implements OnInit {
   }
 
   public websiteFromId(): void {
-    this.websiteService.websiteFromId(this.code!.website_id).subscribe(website => this.website = website);
+    this.websiteService.websiteFromId(this.code!.website_id).subscribe(website => {
+      this.website = website;
+    });
   }
 
   public userFromId(): void {
-    this.userService.userFromId(this.code!.user_id).subscribe(owner => this.owner = owner);
+    this.userService.userFromId(this.code!.user_id).subscribe(owner => {
+      this.owner = owner;
+    });
   }
 
   public ratingCode(): void {
-    this.ratingService.ratingFromCodeId(this.code!.code_id).subscribe(ratings=> {
-      this.positiveRatings = ratings!.filter(r => r.is_positive);
-      this.negativeRatings = ratings!.filter(r => r.is_negative);
+    this.ratingService.ratingFromCodeId(this.code!.code_id).subscribe(ratings => {
+
+      this.positiveRatings = ratings!.numberPositives;
+      this.negativeRatings = ratings!.numberNegatives;
     })
   }
 
@@ -67,8 +73,11 @@ export class CodeListItemComponent implements OnInit {
 
   public onSponsorBtn(): void {
     const formValue = this.sponsoringForm.value;
-    this.sponsorService.addSponsor(this.code!.code_id, formValue.amount);
-    this.snackBar.open('Sponsorhsip added', "Ok");
+    this.sponsorService.addSponsor(this.code!.code_id, formValue.amount).subscribe(value => {
+      this.sponsorships = value;
+      this.snackBar.open('Sponsorhsip added', "Ok");
+    });
+
   }
 
   public onUpdateBtn(): void {
@@ -76,16 +85,22 @@ export class CodeListItemComponent implements OnInit {
   }
 
   public onDeleteBtn(): void {
-    this.codeService.deleteCode(this.code!.code_id);
+    this.codeService.deleteCode(this.code!.code_id).subscribe(value => console.log(value));
   }
 
   public onLike(): void {
-    this.ratingService.addLike(this.code!.code_id);
-    this.snackBar.open('Like added', "Ok");
+    this.ratingService.addLike(this.code!.code_id).subscribe(value => {
+      this.ratingCode();
+      this.snackBar.open('Like added', "Ok");
+    });
+
   }
 
   public onDislike(): void {
-    this.ratingService.addDislike(this.code!.code_id);
-    this.snackBar.open('Dislike added', "Ok");
+    this.ratingService.addDislike(this.code!.code_id).subscribe(value => {
+      this.ratingCode();
+      this.snackBar.open('Dislike added', "Ok");
+    });
+
   }
 }

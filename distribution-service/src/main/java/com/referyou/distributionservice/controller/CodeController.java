@@ -25,6 +25,8 @@ public class CodeController {
         return codeService.create(code);
     }
 
+
+
     @DeleteMapping("{codeId}")
     public void destroy(@PathVariable long codeId) {
         codeService.destroy(codeId);
@@ -44,6 +46,12 @@ public class CodeController {
     public List<Code> codeByWebsite(@PathVariable long websiteId) {
         return websiteService.getCodes(websiteId);
     }
+
+    @GetMapping("/by-code/{codeId}")
+    public Code getCodeById(@PathVariable long codeId) {
+        return codeService.getById(codeId);
+    }
+
 
     @GetMapping()
     public Iterable<Code> getAllCodes() {

@@ -23,18 +23,21 @@ public class SponsorController {
      * @param codeId The id of the code
      * @return the sum of all the previous promotions
      */
-    @GetMapping("{codeId}")
+    @GetMapping("/{codeId}")
     public float getAmountForCode(@PathVariable() long codeId) {
         return sponsorService.getAmount(codeId);
     }
 
+
+
     public static class PromoteRequest {
         public float amount;
     }
-    @PostMapping("{codeId}")
+    @PostMapping("/{codeId}")
     public float promote(@PathVariable() long codeId, @RequestBody() PromoteRequest body) {
         return sponsorService.promote(codeId, body.amount);
     }
+
 
 
 }

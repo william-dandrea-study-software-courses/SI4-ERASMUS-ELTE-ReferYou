@@ -8,6 +8,7 @@ import { PageNotFoundComponent } from './feature/page-not-found/page-not-found.c
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {SharedModule} from "./shared/shared.module";
 import {HttpClientModule} from "@angular/common/http";
+import {DatePipe} from "@angular/common";
 
 
 @NgModule({
@@ -23,7 +24,7 @@ import {HttpClientModule} from "@angular/common/http";
     SharedModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

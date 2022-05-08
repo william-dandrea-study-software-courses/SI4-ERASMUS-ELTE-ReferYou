@@ -35,12 +35,13 @@ export class CreateUpdateCodeComponent implements OnInit, OnDestroy {
   });
 
   public websites: Website[] | null = null;
+  private websiteSub: Subscription = new Subscription();
 
   constructor(private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder, private websiteService: WebsiteService, private codeService: CodeService, private snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
 
-    this.websiteService.allWebsites$.subscribe(websites => {
+    this.websiteSub = this.websiteService.allWebsites().subscribe(websites => {
       this.websites = websites;
     })
 
@@ -70,6 +71,7 @@ export class CreateUpdateCodeComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.subscriptionRoute.unsubscribe();
     this.subscriptionParamsRoute.unsubscribe();
+    this.websiteSub.unsubscribe();
   }
 
 
@@ -77,17 +79,34 @@ export class CreateUpdateCodeComponent implements OnInit, OnDestroy {
     const formValue = this.codeForm.value;
 
     if (this.codeId == null) {
-      this.codeService.addCode(formValue.code_value, formValue.description, formValue.expiration_date, formValue.redirect_url, formValue.website_id);
+      this.codeService.addCode(formValue.code_value, formValue.description, formValue.expiration_date, formValue.redirect_url, formValue.website_id).subscribe(
+        value => {
+          console.log("value")
+          this.router.navigate(['home', 'code',]);
+        }
+      );
     } else {
-      this.codeService.updateCode(this.codeId, formValue.code_value, formValue.description, formValue.expiration_date, formValue.redirect_url, formValue.website_id);
+      this.codeService.updateCode(this.codeId, formValue.code_value, formValue.description, formValue.expiration_date, formValue.redirect_url, formValue.website_id).subscribe(
+        value => {
+          console.log("value")
+          this.router.navigate(['home', 'code',]);
+        }
+      );
     }
 
-    this.router.navigate(['home', 'code',]);
+
   }
 
   submitWebsite() {
-    this.websiteService.addWebsite(this.websiteForm.value.url, this.websiteForm.value.description);
-    this.snackBar.open('Website added', "Ok");
+    this.websiteService.addWebsite(this.websiteForm.value.url, this.websiteForm.value.description).subscribe(value => {
+      this.websiteSub = this.websiteService.allWebsites().subscribe(websites => {
+        this.websites = websites;
+
+      })
+      this.snackBar.open('Website added', "Ok");
+    });
+
+
 
   }
 }

@@ -44,4 +44,9 @@ public class CodeService {
     public Iterable<Code> getAll() {
         return codeRepository.findAll();
     }
+
+    public Code getById(long codeId) {
+        return this.codeRepository.findById(codeId)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Code not found."));
+    }
 }
