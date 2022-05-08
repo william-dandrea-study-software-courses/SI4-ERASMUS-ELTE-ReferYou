@@ -11,6 +11,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -79,4 +80,9 @@ public class Code {
     @JoinColumn(name = "id", referencedColumnName = "code_id", insertable = false, updatable = false)
     @JsonIgnore
     public Sponsor sponsor;
+
+    @Getter
+    @JsonIgnore
+    @OneToMany(targetEntity = Rating.class, mappedBy = "codeId", cascade = CascadeType.REMOVE)
+    public List<Rating> ratings;
 }
