@@ -9,16 +9,18 @@
         </mat-card-header>
 
         <mat-card-content>
-          <mat-form-field appearance="fill" class="full-width mt50px" >
-            <mat-label>Enter your email</mat-label>
-            <input matInput [type]="'email'">
-            <mat-icon matSuffix>email</mat-icon>
-          </mat-form-field>
-          <mat-form-field appearance="fill" class="full-width">
-            <mat-label>Enter your password</mat-label>
-            <input matInput [type]="'password'">
-            <mat-icon matSuffix>password</mat-icon>
-          </mat-form-field>
+          <form [formGroup]="loginForm">
+            <mat-form-field appearance="fill" class="full-width mt50px" >
+              <mat-label>Enter your email</mat-label>
+              <input matInput [type]="'email'" formControlName="email">
+              <mat-icon matSuffix>email</mat-icon>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Enter your password</mat-label>
+              <input matInput [type]="'password'" formControlName="password">
+              <mat-icon matSuffix>password</mat-icon>
+            </mat-form-field>
+          </form>
         </mat-card-content>
 
         <mat-card-footer>
@@ -35,16 +37,18 @@
         </mat-card-header>
 
         <mat-card-content>
-          <mat-form-field appearance="fill" class="full-width mt50px" >
-            <mat-label>Enter your email</mat-label>
-            <input matInput [type]="'email'">
-            <mat-icon matSuffix>email</mat-icon>
-          </mat-form-field>
-          <mat-form-field appearance="fill" class="full-width">
-            <mat-label>Enter your password</mat-label>
-            <input matInput [type]="'password'">
-            <mat-icon matSuffix>password</mat-icon>
-          </mat-form-field>
+          <form [formGroup]="registerForm">
+            <mat-form-field appearance="fill" class="full-width mt50px" >
+              <mat-label>Enter your email</mat-label>
+              <input matInput [type]="'email'" formControlName="email">
+              <mat-icon matSuffix>email</mat-icon>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Enter your password</mat-label>
+              <input matInput [type]="'password'" formControlName="password">
+              <mat-icon matSuffix>password</mat-icon>
+            </mat-form-field>
+          </form>
         </mat-card-content>
 
         <mat-card-footer>

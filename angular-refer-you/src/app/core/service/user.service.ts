@@ -12,13 +12,28 @@ export class UserService {
   public currentUser$: BehaviorSubject<User | null> = new BehaviorSubject<User | null>(null)
 
   constructor() {
-    this.setUser();
+    // this.setUser();
   }
 
 
-  setUser() {
+  public setUser() {
     this.currentUser = USERS[0];
     // this.currentUser = null;
+    this.currentUser$.next(this.currentUser);
+  }
+
+  public changeUser(id: number, mail: string, password: string, isBan: boolean, token: string): void {
+    this.currentUser = {
+      user_id: id,
+      mail: mail,
+      password: password,
+      is_ban: isBan,
+    };
+    this.currentUser$.next(this.currentUser);
+  }
+
+  public resetUser(): void {
+    this.currentUser = null;
     this.currentUser$.next(this.currentUser);
   }
 

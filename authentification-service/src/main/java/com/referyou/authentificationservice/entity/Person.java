@@ -19,6 +19,7 @@ import java.util.UUID;
 public class Person {
 
     @Id
+    @Getter
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 

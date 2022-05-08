@@ -14,7 +14,7 @@ export class PageNotFoundComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.authService.registerRequest("salut@gmail.com", "william").subscribe(value => {
+    this.authService.register("salut@gmail.com", "william").subscribe(value => {
       console.log('Register :', value);
 
 
