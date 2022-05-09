@@ -1,4 +1,4 @@
-package com.referyou.authentificationservice.entity;
+package com.referyou.databasemodels.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;

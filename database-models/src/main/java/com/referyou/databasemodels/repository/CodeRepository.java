@@ -1,6 +1,6 @@
-package databasemodels.repository;
+package com.referyou.databasemodels.repository;
 
-import databasemodels.entity.Code;
+import com.referyou.databasemodels.entity.Code;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
