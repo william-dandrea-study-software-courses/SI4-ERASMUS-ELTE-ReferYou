@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Code} from "../../../core/models/code.model";
 import {Website} from "../../../core/models/website.model";
 import {User} from "../../../core/models/user.model";
@@ -25,6 +25,8 @@ export class CodeListItemComponent implements OnInit {
   public owner: User | undefined = undefined;
   public positiveRatings: number = 0;
   public negativeRatings: number = 0;
+
+  @Output() public onDelete: EventEmitter<void> = new EventEmitter();
 
   public panelOpenState: boolean = false;
 
@@ -85,7 +87,7 @@ export class CodeListItemComponent implements OnInit {
   }
 
   public onDeleteBtn(): void {
-    this.codeService.deleteCode(this.code!.code_id).subscribe(value => console.log(value));
+    this.codeService.deleteCode(this.code!.code_id).subscribe(() => this.onDelete.emit());
   }
 
   public onLike(): void {

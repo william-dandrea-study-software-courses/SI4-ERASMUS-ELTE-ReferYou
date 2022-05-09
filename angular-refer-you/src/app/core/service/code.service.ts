@@ -35,7 +35,7 @@ export class CodeService {
   }
 
   public deleteCode(id: number): Observable<any> {
-    return this.http.delete(`http://localhost:8987/distribution/code/${id}`)
+    return this.http.delete(`http://localhost:8987/distribution/code/${id}`);
 
     // this.allCodes = this.allCodes!.filter(c => c.code_id != +id);
     // this.allCodes$.next(this.allCodes);
@@ -88,7 +88,7 @@ export class CodeService {
         redirect_url: redirect_url,
       }),{
         headers: new HttpHeaders({
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json'
         })
       })
   }

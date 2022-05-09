@@ -9,7 +9,7 @@
 
   <div class="mat-card-content mt50px" *ngIf="allCodes !== null">
     <div *ngFor="let code of allCodes" class="full-width">
-      <app-code-list-item [code]="code"></app-code-list-item>
+      <app-code-list-item [code]="code" (onDelete)="delete(code)"></app-code-list-item>
     </div>
   </div>
 </mat-card>

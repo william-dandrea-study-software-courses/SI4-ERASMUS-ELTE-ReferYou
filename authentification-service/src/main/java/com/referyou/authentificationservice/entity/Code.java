@@ -11,6 +11,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -56,11 +57,11 @@ public class Code {
     @Column(name = "owner_id")
     private long ownerId;
 
-//    @Getter @Setter
-//    @ManyToOne
-//    @JoinColumn(name = "owner_id", referencedColumnName = "id", updatable = false, insertable = false)
-//    @JsonIgnore
-//    public Person owner;
+    @Getter @Setter
+    @ManyToOne
+    @JoinColumn(name = "owner_id", referencedColumnName = "id", updatable = false, insertable = false)
+    @JsonIgnore
+    public Person owner;
 
 
     @Getter @Setter
@@ -80,8 +81,8 @@ public class Code {
     @JsonIgnore
     public Sponsor sponsor;
 
-//    @Getter
-//    @JsonIgnore
-//    @OneToMany(targetEntity = Rating.class, mappedBy = "codeId", cascade = CascadeType.REMOVE)
-//    public List<Rating> ratings;
+    @Getter
+    @JsonIgnore
+    @OneToMany(targetEntity = Rating.class, mappedBy = "codeId", cascade = CascadeType.REMOVE)
+    public List<Rating> ratings;
 }

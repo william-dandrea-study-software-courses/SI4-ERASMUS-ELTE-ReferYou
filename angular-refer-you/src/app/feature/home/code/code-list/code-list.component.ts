@@ -36,4 +36,8 @@ export class CodeListComponent implements OnInit {
   onAddNewCode() {
     this.router.navigate(['home', 'code', 'create']);
   }
+
+  delete(code: Code) {
+    this.allCodes = this.allCodes?.filter(c => c != code) ?? []
+  }
 }
