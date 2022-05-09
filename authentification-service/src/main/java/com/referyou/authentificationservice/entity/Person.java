@@ -1,5 +1,7 @@
 package com.referyou.authentificationservice.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,8 +15,11 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.UUID;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
+@AllArgsConstructor
 @NoArgsConstructor
 public class Person {
 
@@ -48,4 +53,8 @@ public class Person {
     }
 
 
+    @Getter
+    @JsonIgnore
+    @OneToMany(targetEntity = Code.class, mappedBy = "ownerId", cascade = CascadeType.REMOVE)
+    public List<Code> codes;
 }
