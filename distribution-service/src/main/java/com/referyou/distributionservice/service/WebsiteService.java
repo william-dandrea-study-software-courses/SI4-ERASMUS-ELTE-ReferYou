@@ -28,11 +28,15 @@ public class WebsiteService {
     }
 
     public Website update(long websiteId, Website website) {
+        if(!websiteRepository.existsById(websiteId))
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Website not found");
         website.setId(websiteId);
         return websiteRepository.save(website);
     }
 
     public void destroy(long websiteId) {
+        if(!websiteRepository.existsById(websiteId))
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Website not found");
         websiteRepository.deleteById(websiteId);
     }
 

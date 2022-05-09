@@ -27,11 +27,15 @@ public class CodeService {
     }
 
     public Code update(long codeId, Code code) {
+        if(!codeRepository.existsById(codeId))
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Code not found");
         code.setId(codeId);
         return codeRepository.save(code);
     }
 
     public void destroy(long codeId) {
+        if(!codeRepository.existsById(codeId))
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Code not found");
         codeRepository.deleteById(codeId);
     }
 
