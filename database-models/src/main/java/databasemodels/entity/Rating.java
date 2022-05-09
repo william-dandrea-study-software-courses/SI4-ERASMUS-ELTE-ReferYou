@@ -1,4 +1,4 @@
-package databasemodels.entity;
+package com.referyou.authentificationservice.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;

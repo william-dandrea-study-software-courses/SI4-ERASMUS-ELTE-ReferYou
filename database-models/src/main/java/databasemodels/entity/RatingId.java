@@ -1,4 +1,4 @@
-package databasemodels.entity;
+package com.referyou.authentificationservice.entity;
 
 import lombok.AllArgsConstructor;
 

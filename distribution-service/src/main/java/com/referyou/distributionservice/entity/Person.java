@@ -8,12 +8,15 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 public class Person {
+
     @Id
+    @Getter
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
@@ -28,6 +31,19 @@ public class Person {
 
     @Getter @Setter
     private String token;
+
+    public Person(String mail, String password) {
+        this.mail = mail;
+        this.password = password;
+        this.isBan = false;
+
+        this.generateNewToken();
+    }
+
+    public void generateNewToken() {
+        this.token = String.valueOf(UUID.randomUUID());
+    }
+
 
     @Getter
     @JsonIgnore

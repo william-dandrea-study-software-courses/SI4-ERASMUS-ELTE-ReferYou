@@ -1,5 +1,6 @@
-package databasemodels.entity;
+package com.referyou.authentificationservice.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
@@ -11,13 +12,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 public class Website {
 
-    @Id @Getter
+    @Id @Getter @Setter
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonProperty("website_id")
     private long id;
@@ -30,4 +33,9 @@ public class Website {
     @Getter @Setter
     @JsonProperty("description")
     private String description;
+
+    @Getter
+    @JsonIgnore
+    @OneToMany(mappedBy = "websiteId", targetEntity = Code.class, cascade = CascadeType.REMOVE)
+    private List<Code> codes;
 }
