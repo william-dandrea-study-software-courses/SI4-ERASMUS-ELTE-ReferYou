@@ -27,7 +27,7 @@ public class Rating {
 
     @Getter
     @ManyToOne
-    @JoinColumn(name = "code_id", referencedColumnName = "id", insertable = false, updatable = false)
+    @JoinColumn(name = "user_id", referencedColumnName = "id", insertable = false, updatable = false)
     @JsonIgnore
     private Person user;
 

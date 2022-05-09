@@ -27,7 +27,7 @@ public class Rating {
 
     @Getter
     @ManyToOne
-    @JoinColumn(name = "code_id", referencedColumnName = "id", insertable = false, updatable = false)
+    @JoinColumn(name = "user_id", referencedColumnName = "id", insertable = false, updatable = false)
     @JsonIgnore
     private Person user;
 
@@ -48,4 +48,11 @@ public class Rating {
     @Getter @Setter
     @JsonProperty("is_negative")
     private boolean isNegative;
+
+    public Rating(long userId, long codeId, boolean positive, boolean negative) {
+        this.userId = userId;
+        this.codeId = codeId;
+        this.isPositive = positive;
+        this.isNegative = negative;
+    }
 }

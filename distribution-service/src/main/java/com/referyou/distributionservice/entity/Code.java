@@ -59,7 +59,7 @@ public class Code {
 
     @Getter @Setter
     @ManyToOne
-    @JoinColumn(name = "owner_id", updatable = false, insertable = false)
+    @JoinColumn(name = "owner_id", referencedColumnName = "id", updatable = false, insertable = false)
     @JsonIgnore
     public Person owner;
 
@@ -71,7 +71,7 @@ public class Code {
 
     @Getter @Setter
     @ManyToOne
-    @JoinColumn(name = "website_id", insertable = false, updatable = false)
+    @JoinColumn(name = "website_id", referencedColumnName = "id", insertable = false, updatable = false)
     @JsonIgnore
     public Website website;
 

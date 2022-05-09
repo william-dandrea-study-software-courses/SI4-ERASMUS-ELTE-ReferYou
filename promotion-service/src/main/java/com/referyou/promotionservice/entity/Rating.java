@@ -48,4 +48,11 @@ public class Rating {
     @Getter @Setter
     @JsonProperty("is_negative")
     private boolean isNegative;
+
+    public Rating(long userId, long codeId, boolean positive, boolean negative) {
+        this.userId = userId;
+        this.codeId = codeId;
+        this.isPositive = positive;
+        this.isNegative = negative;
+    }
 }
