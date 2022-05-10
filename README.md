@@ -1,4 +1,11 @@
-# ReferYou
+# How to run the code
+
+- You have to go in the angular-referyou folder and do `ng serve`
+- In an another terminal, you can do `docker compose up` and wait 2-3 minutes that everything is ready
+- You can consult the website in the url “http://localhost:4200”
+
+# Code details
+
 
 For launching all the microservices : 
 ```
